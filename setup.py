@@ -7,7 +7,7 @@ with codecs.open('README.rst', encoding='utf-8') as f:
 
 setup(
     name="rm_protection",
-    version="0.0.2",
+    version="0.0.3",
     license='MIT',
     description="A safe alternative for \"rm\" with minimum difference.",
     author='Alan Chen',
@@ -27,6 +27,8 @@ setup(
     classifiers=[
         'License :: OSI Approved :: MIT License',
         'Intended Audience :: Developers',
+        'Programming Language :: Python :: 2',
+        'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.3',
         'Programming Language :: Python :: 3.4',

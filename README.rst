@@ -16,7 +16,7 @@ found and you failed to answer a question.
 Quick Start
 ===========
 
-``pip install rm-protection & alias rm="rm-p"``
+``pip install rm-protection``
 
 1. Install from PyPi and make an alias for ``rm-p``.
 2. Protect your files using ``protect``.
@@ -54,7 +54,7 @@ file(s) inside.
 Requirements
 ============
 
--  Python 3
+-  Python 2 or 3
 -  Linux, unix and macOS
 -  ``find``
 

@@ -6,13 +6,21 @@
 A safe alternative for `rm` with minimum difference.
 
 # What is this?
- `rm-protection` is a safe alternative for removing file. It works exactly the same as `rm` (in fact it passes arguments to rm). The only difference is that it refuses to procceed if a `.*.rm-protection`  file is found and you failed to answer a question.
+ `rm-protection` is a safe alternative for removing file. It works exactly the same as `rm` (in fact it passes arguments to `rm` almost untouched). The only difference is that it refuses to procceed if a `.*.rm-protection`  file is found and you failed to answer a question.
+
+# Why are you here?
+
+I watched GitLab engineers trying to recover their production database live on YouTube.
+
+Suddenly an idea striked me: What if `rm` promtpted to ask "Which server are you on?" or "Which database are you trying to delete?"?
+
+The disaster could have been avoided.
 
 # Quick Start
 
 1.  Install from PyPi and make an alias for `rm-p` .
 
-     `pip install rm-protection & alias rm="rm-p"`
+     `pip install rm-protection` and if you are sure, `alias rm="rm-p"`
 
 2.  Protect your files using `protect`.
 
@@ -33,7 +41,7 @@ A safe alternative for `rm` with minimum difference.
 ![Recursive protection](https://ooo.0o0.ooo/2017/02/03/589437603366e.png)
 
 # Requirements
-- Python 3
+- Python 2 or 3
 - Linux, unix and macOS
 - `find`
 
@@ -48,6 +56,8 @@ A safe alternative for `rm` with minimum difference.
 | [safe-rm](https://launchpad.net/safe-rm) | Yes                  | Yes                    | Low         | Centralised Config |
 | rm-protection                            | Yes                  | Yes                    | High        | One for each       |
 
+# Why don't you just use XXX?
+
  `rm-protection` aims at providing maximum protection and flexibility while making minimum impact on daily operation.
 
  `rm -i` can be very annoying, `trash-cli` is a bit complex (imagine you have a habit of emptying the trash without a second thought, or imagine you are trying to free up spaces on a budget vm). ` Safe-rm` is inconvenient when you really need to delete something (you have to edit the configuration file).
@@ -56,3 +66,9 @@ A safe alternative for `rm` with minimum difference.
 
 # How to contribute?
 Pull requests and issues are all welcome! Or tell others about this, so you can even `protect` the files you send to others!
+
+Actually I don't care if people are using my implementation at all. I just think this kind of mechanism can be great -- using a `.rm-protection` file that asks questions.
+
+If the community welcomes this mechanism, it will soon be ported/rewritten in every platform or languages, or even be implemented in the GNU coreutils. Then you can even get some default protections shipped with dists and packages.
+
+**So if you agree on this mechanism, please share with others!**

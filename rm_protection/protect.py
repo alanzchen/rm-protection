@@ -1,7 +1,7 @@
-#!/usr/bin/env python3
 from sys import argv
 from os.path import expanduser as expu, expandvars as expv
 from os.path import basename, dirname, abspath
+from builtins import input
 
 suffix = ".rm-protection"
 
