@@ -7,7 +7,7 @@ with codecs.open('README.rst', encoding='utf-8') as f:
 
 setup(
     name="rm_protection",
-    version="0.0.3",
+    version="0.1.0",
     license='MIT',
     description="A safe alternative for \"rm\" with minimum difference.",
     author='Alan Chen',
@@ -17,7 +17,7 @@ setup(
     package_data={
         'rm_protection': ['README.rst', 'LICENSE']
     },
-    install_requires=[],
+    install_requires=['future'],
     entry_points={
         'console_scripts': [
             'rm-p=rm_protection.rm_p:protected_rm',
