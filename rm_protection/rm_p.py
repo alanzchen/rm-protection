@@ -57,7 +57,6 @@ def protected_rm():
         if exists(evalpaths[i]) and not exists(paths[i]):
             remove_protection_files += evalpaths[i] + ' '
     if remove_protection_files:
-        print remove_protection_files
         Popen("rm " + remove_protection_files, shell=True)
 
 
