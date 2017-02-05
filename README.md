@@ -49,9 +49,6 @@ The disaster could have been avoided.
 - Linux, unix and macOS
 - `find`
 
-# Known issues
-- Currently does not support protecting files whose name starts with "-".
-
 # Comparison with alternative methods
 | Methods                                  | Can be used as "rm"? | Protect Specific Files | Flexibility | Additional Files   |
 | ---------------------------------------- | -------------------- | ---------------------- | ----------- | ------------------ |
