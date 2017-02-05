@@ -5,6 +5,8 @@
 
 A safe alternative for `rm` with minimum difference
 
+Ports: See [#ports](#ports)
+
 Wiki: https://github.com/alanzchen/rm-protection/wiki
 
 # What is this?
@@ -73,3 +75,14 @@ Actually I don't care if people are using my implementation at all. I just think
 If the community welcomes this mechanism, it will soon be ported/rewritten in every platform or languages, or even be implemented in the GNU coreutils. Then you can even get some default protections shipped with distributions and packages.
 
 **So if you agree on this mechanism, please share with others!**
+
+# Ports
+
+## C
+
+- [rm-protection-c](https://github.com/losfair/rm-protection-c)
+  `rm-protection` implemented in C by [losfair](https://github.com/losfair/)
+
+  Current only offers binaries for Linux, source code available for building in macOS and unix.
+
+  (Note that it may behave slightly differently from `rm-protection` and it has not been tested by me.)
