@@ -24,7 +24,7 @@ The disaster could have been avoided.
 
 1.  Install from PyPi and make an alias for `rm-p` .
 
-     `pip install rm-protection` and if you are sure, `alias rm="rm-p"`
+     `pip install rm-protection` and optionally, `alias rm="rm-p"` for your daily user and **root** (so that it works for `sudo`).
 
 2.  Protect your files using `protect`.
 
