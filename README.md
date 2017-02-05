@@ -1,7 +1,7 @@
 ![rm-protection logo](https://ooo.0o0.ooo/2017/02/03/58943f1ed88cd.png)
 # rm-protection
 
- ![PyPi Downloads](https://img.shields.io/pypi/dm/rm-protection.svg)  ![PyPiversion](https://img.shields.io/pypi/v/rm-protection.svg) ![Wheel](https://img.shields.io/pypi/format/rm-protection.svg)  ![python version](https://img.shields.io/pypi/pyversions/rm-protection.svg)
+![Codacy Badge](https://api.codacy.com/project/badge/Grade/a0e08692cc124bcc8a416284d7e6e41a) ![PyPiversion](https://img.shields.io/pypi/v/rm-protection.svg)  ![Wheel](https://img.shields.io/pypi/format/rm-protection.svg)  ![python version](https://img.shields.io/pypi/pyversions/rm-protection.svg) ![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/alanzchen/rm-protection.svg)
 
 A safe alternative for `rm` with minimum difference.
 
@@ -13,6 +13,8 @@ A safe alternative for `rm` with minimum difference.
 I watched GitLab engineers trying to recover their production database live on YouTube.
 
 Suddenly an idea striked me: What if `rm` promtpted to ask "Which server are you on?" or "Which database are you trying to delete?"?
+
+![What if GitLab Ops had this...](https://ooo.0o0.ooo/2017/02/05/5896a5a715673.png)
 
 The disaster could have been avoided.
 
