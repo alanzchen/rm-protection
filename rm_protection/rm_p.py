@@ -25,13 +25,10 @@ def ask(evalpath, path=""):
 
 
 def ask_in(q, a):
-    if input(q) in a:
-        return True
-    else:
-        return False
+    return bool(input(q) in a)
 
 
-def rm(rm_args=[]):
+def rm(rm_args=None):
     args = ''
     c = Config()
     paths = []

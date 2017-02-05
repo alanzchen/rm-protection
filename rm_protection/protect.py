@@ -5,7 +5,7 @@ from builtins import input
 from config import Config
 
 
-def protect(protect_args=[]):
+def protect(protect_args=None):
     c = Config()
     if not protect_args:
         protect_args = argv[1:]
