@@ -3,7 +3,7 @@ from os.path import expanduser as expu, expandvars as expv
 from os.path import basename, dirname, abspath, isdir, exists
 from subprocess import Popen, PIPE
 from builtins import input
-from config import Config
+from rm_protection.config import Config
 
 
 def ask(evalpath, path=""):

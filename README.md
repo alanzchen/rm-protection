@@ -10,7 +10,7 @@ Ports: See [#ports](#ports)
 Wiki: https://github.com/alanzchen/rm-protection/wiki
 
 # What is this?
- `rm-protection` is a safe alternative for removing file. It works exactly the same as `rm` (in fact it passes arguments to `rm` almost untouched). The only difference is that it refuses to proceed if a `.*.rm-protection`  file is found and you failed to answer a question.
+ `rm-protection` is a safe alternative for removing files. It works exactly the same as `rm` (in fact it passes arguments to `rm` almost untouched). The only difference is that it refuses to proceed if a `.*.rm-protection`  file is found and you failed to answer a question.
 
 # Why are you here?
 

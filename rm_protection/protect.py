@@ -2,7 +2,7 @@ from sys import argv
 from os.path import expanduser as expu, expandvars as expv
 from os.path import basename, dirname, abspath, exists
 from builtins import input
-from config import Config
+from rm_protection.config import Config
 
 
 def protect(protect_args=None):
