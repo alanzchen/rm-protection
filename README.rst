@@ -19,7 +19,7 @@ Quick Start
 ``pip install rm-protection``
 
 1. Install from PyPi and make an alias for ``rm-p``.
-2. Protect your files using ``protect``.
+2. Protect your files using ``protect``. If you want to protect everything inside, ``protect -R``.
 3. Happy rm-ing!
 
 How does it work?

@@ -7,27 +7,44 @@ from rm_protection.config import Config
 
 
 c = Config()
+evaledpaths = []
+
+
+def pprint(msg):
+    global c
+    print(c.rm_prefix + msg)
 
 
 def ask(evalpath, parent=False):
-    with open(evalpath, "r") as f:
-        question = f.readline().rstrip("\n")
-        answer = f.readline().rstrip("\n")
-        try:
-            flags = f.readline().rstrip("\n")
-        except:
-            flags = ''
-        if parent and 'R' not in flags:
-            print(original_path(evalpath) + ' is protected but flag "R" is missing.')
-            return True
-        else:
-            print(original_path(evalpath) + ": " + question)
-            if input("Answer: ") == answer:
+    global evaledpaths
+    if evalpath in evaledpaths:
+        return True
+    else:
+        with open(evalpath, "r") as f:
+            question = f.readline().rstrip("\n")
+            answer = f.readline().rstrip("\n")
+            try:
+                flags = f.readline().rstrip("\n")
+            except:
+                flags = ''
+            if parent and 'R' not in flags:
+                pprint(original_path(evalpath) + ' is protected but flag "R" is missing')
+                evaledpaths.append(evalpath)
                 return True
             else:
-                print("Wrong answer! " + original_path(evalpath) + " will not be removed")
-                print("The answer is stored in " + evalpath)
-            return False
+                if parent:
+                    pprint('The parent directory ' + original_path(evalpath) + ' is protected')
+                pprint(original_path(evalpath) + ": " + question)
+                if input("Answer: ") == answer:
+                    evaledpaths.append(evalpath)
+                    return True
+                else:
+                    if parent:
+                        return False
+                    else:
+                        pprint("Wrong answer! " + original_path(evalpath) + " will not be removed")
+                    pprint("The answer is stored in " + evalpath)
+                return False
 
 
 def original_path(evalpath):
@@ -38,6 +55,7 @@ def original_path(evalpath):
         return basepath + filename
     else:
         return basepath + '/' + filename
+
 
 def ask_in(q, a):
     return bool(input(q) in a)
@@ -61,20 +79,19 @@ def gen_eval(path):
     return basedir + "/." + basename(path) + c.suffix
 
 
-def parent_clear(file_evalpaths):
+def parent_clear(file_evalpaths, path):
     for filepath in file_evalpaths:
         parent_eval = file_evalpaths[filepath]
         if exists(parent_eval):
-            print('The parent directory ' + filepath + ' is protected')
-            result = ask(parent_eval, parent=True)
-            if not result:
-                print(filepath + ' will not be removed')
+            if not ask(parent_eval, parent=True):
+                pprint(path + ' will not be removed')
                 return False
     return True
 
 
 def rm(rm_args=None):
     global c
+    global evaledpaths
     args = ''
     paths = []
     evalpaths = []
@@ -91,11 +108,11 @@ def rm(rm_args=None):
             file_evalpaths = gen_evalpaths(path)
             evalpath = gen_eval(path)
             if c.suffix in arg:
-                print(path + " is a protection file")
+                pprint(path + " is a protection file")
                 if ask_in(q="Do you want to remove it? (y/n) ", a="Yesyes"):
                     args += arg + ' '
                 else:
-                    print(path + " will not be removed")
+                    pprint(path + " will not be removed")
                 continue
             if exists(evalpath):
                 if ask(evalpath):
@@ -103,15 +120,15 @@ def rm(rm_args=None):
                     evalpaths.append(evalpath)
                 else:
                     continue
-            if not parent_clear(file_evalpaths):
+            if not parent_clear(file_evalpaths, path):
                 continue
             if isdir(path):
                 find_exec = "find " + path + " -name " + "\".*" + c.suffix + "\"" + " -print"
                 out, err = Popen(find_exec, shell=True, stdout=PIPE, stderr=PIPE, universal_newlines=True).communicate()
                 for pfile in iter(out.splitlines()):
-                    print("A protected file or directory is found inside " + path)
+                    pprint("A protected file or directory is found inside " + path)
                     if not ask(pfile):
-                        print("Terminated due to potentially dangerous action")
+                        pprint("Terminated due to potentially dangerous action")
                         exit(1)
         args += arg + ' '
     Popen("rm " + args, shell=True).wait()
@@ -120,7 +137,8 @@ def rm(rm_args=None):
         if exists(evalpath) and not exists(path):
             remove_protection_files += evalpath + ' '
     if remove_protection_files:
-        Popen("rm " + remove_protection_files, shell=True)
+        Popen("rm " + remove_protection_files, shell=True).wait()
+    evaledpaths = []
 
 
 if __name__ == "__main__":
