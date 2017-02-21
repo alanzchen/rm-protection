@@ -28,7 +28,7 @@ The disaster could have been avoided.
 
      `pip install rm-protection` and optionally, `alias rm="rm-p"` for your daily user and **root** (so that it works for `sudo`).
 
-2.  Protect your files using `protect`.
+2.  Protect your files using `protect`. If you want to protect everything inside, `protect -R`.
 
 3.  Happy rm-ing!
 

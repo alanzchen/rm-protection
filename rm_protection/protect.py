@@ -5,22 +5,36 @@ from builtins import input
 from rm_protection.config import Config
 
 
+c = Config()
+
+
+def pprint(msg):
+    global c
+    print(c.protect_prefix + msg)
+
+
 def protect(protect_args=None):
-    c = Config()
+    global c
+    flags = ''
+    option_end = False
     if not protect_args:
         protect_args = argv[1:]
     for arg in protect_args:
-        if arg in c.invalid:
-            print("\".\" and \"..\" may not be protected")
+        if arg == '--':
+            option_end = True
+        elif (arg.startswith("-") and not option_end):
+            flags = flags + arg[arg.rfind('-') + 1:]
+        elif arg in c.invalid:
+            pprint('"." and ".." may not be protected')
         else:
             path = abspath(expv(expu(arg)))
             evalpath = dirname(path) + "/." + basename(path) + c.suffix
             if not exists(path):
-                print("Warning: " + path + " does not exist")
+                pprint("Warning: " + path + " does not exist")
             with open(evalpath, "w") as f:
                 question = input("Question for " + path + ": ")
                 answer = input("Answer: ")
-                f.write(question + "\n" + answer)
+                f.write(question + "\n" + answer + "\n" + flags.upper())
 
 
 if __name__ == "__main__":
