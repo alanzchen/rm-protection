@@ -130,15 +130,21 @@ def rm(rm_args=None):
                     if not ask(pfile):
                         pprint("Terminated due to potentially dangerous action")
                         exit(1)
-        args += arg + ' '
+        args += bash_path(arg) + ' '
     Popen("rm " + args, shell=True).wait()
     remove_protection_files = ''
     for evalpath, path in zip(evalpaths, paths):
         if exists(evalpath) and not exists(path):
-            remove_protection_files += evalpath + ' '
+            remove_protection_files += bash_path(evalpath) + ' '
     if remove_protection_files:
         Popen("rm " + remove_protection_files, shell=True).wait()
     evaledpaths = []
+
+
+def bash_path(path):
+    for sym in "\\#;,\'\"|{}[]() *&?@<>=!":
+        path = ("\\"+sym).join(path.split(sym))
+    return path
 
 
 if __name__ == "__main__":
