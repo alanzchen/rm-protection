@@ -99,6 +99,8 @@ def rm(rm_args=None):
     if not rm_args:
         rm_args = argv[1:]
     for arg in rm_args:
+        for sym in "\\#;,\'\"|{}[]() *&?@~+-<>=!":
+            arg = ("\\"+sym).join(arg.split(sym))
         if arg == '--':
             option_end = True
         elif (arg.startswith("-") and not option_end) or arg in c.invalid:
