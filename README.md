@@ -1,7 +1,7 @@
 ![rm-protection logo](https://ooo.0o0.ooo/2017/02/03/58943f1ed88cd.png)
 # rm-protection
 
-![Codacy Badge](https://api.codacy.com/project/badge/Grade/a0e08692cc124bcc8a416284d7e6e41a) ![PyPiversion](https://img.shields.io/pypi/v/rm-protection.svg)  ![Wheel](https://img.shields.io/pypi/format/rm-protection.svg)  ![python version](https://img.shields.io/pypi/pyversions/rm-protection.svg) ![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/alanzchen/rm-protection.svg)
+![Codacy Badge](https://api.codacy.com/project/badge/Grade/a0e08692cc124bcc8a416284d7e6e41a) ![PyPiversion](https://img.shields.io/pypi/v/rm-protection.svg)  ![Wheel](https://img.shields.io/pypi/format/rm-protection.svg)  ![python version](https://img.shields.io/pypi/pyversions/rm-protection.svg) ![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/alanzchen/rm-protection.svg) [![PyPI Downloads](https://pepy.tech/badge/rm-protection)](https://pepy.tech/project/rm-protection)
 
 A safe alternative for `rm` with minimum difference
 
